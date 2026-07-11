@@ -24,3 +24,49 @@ def isAnagram(s, t):
 
 print(isAnagram("anagram","nagaram"))
 print(isAnagram("car","rat"))
+
+
+# Another approach for anagram 
+
+# Anagrams
+
+string1 = 'silent'
+string2 = 'listen'
+
+string1 = string1.lower()
+string2 = string2.lower()
+
+counts = {}
+anagram = True
+
+if len(string1) != len(string2):
+    anagram = False
+    print("Given string is not a anagram")
+
+for char in string1:
+
+    if char in counts:
+        counts[char] += 1
+    
+    else:
+        counts[char] = 1
+
+for char in string2:
+    
+    if char in counts:
+        counts[char] -= 1
+
+    else:
+        anagram = False
+        print("Given strings is not a anagram")
+        break
+
+for count in counts.values():
+    if count != 0:
+        anagram = False
+
+print(anagram)
+
+
+        
+
